@@ -31,7 +31,7 @@ const Index = () => {
             </div>
             <div className="md:w-1/2 flex justify-center">
               <img 
-                src="/980f4f9f-92bf-41e4-9cae-23e2be54fc7e.png" 
+                src="/lovable-uploads/5d576f8e-2710-49be-a4e8-d68bfb16d4dd.png" 
                 alt="Compassionate AI Mental Health Support" 
                 className="w-full max-w-md rounded-lg shadow-xl" 
               />
