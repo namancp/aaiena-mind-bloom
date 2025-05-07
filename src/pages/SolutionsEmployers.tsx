@@ -1,4 +1,5 @@
 
+import React from "react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -110,20 +111,22 @@ const SolutionsEmployers = () => {
             </div>
             <div className="lg:w-1/2">
               <Card className="p-8 shadow-lg">
-                <img 
-                  src="/placeholder.svg" 
-                  alt="Dashboard Preview" 
-                  className="rounded-md shadow mb-6" 
-                />
-                <h3 className="text-xl font-bold mb-2">Admin Dashboard</h3>
-                <p className="text-gray-600 mb-4">
-                  Our dashboard provides HR leaders and wellness managers with actionable insights while maintaining employee confidentiality.
-                </p>
-                <Button className="bg-[#2EC4B6] hover:bg-teal-600" asChild>
-                  <Link to="/contact">Request a Demo</Link>
-                </Button>
-              </CardContent>
-            </Card>
+                <CardContent>
+                  <img 
+                    src="/placeholder.svg" 
+                    alt="Dashboard Preview" 
+                    className="rounded-md shadow mb-6" 
+                  />
+                  <h3 className="text-xl font-bold mb-2">Admin Dashboard</h3>
+                  <p className="text-gray-600 mb-4">
+                    Our dashboard provides HR leaders and wellness managers with actionable insights while maintaining employee confidentiality.
+                  </p>
+                  <Button className="bg-[#2EC4B6] hover:bg-teal-600" asChild>
+                    <Link to="/contact">Request a Demo</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
