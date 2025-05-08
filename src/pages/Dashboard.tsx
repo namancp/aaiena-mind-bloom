@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageCircle, Activity, Heart, Calendar, User, Settings, LogOut } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Dashboard = () => {
   const { toast } = useToast();
+  const { user, logout } = useAuth();
   const [moodHistory] = useState([
     { date: "May 5", mood: "Happy", intensity: 8 },
     { date: "May 4", mood: "Anxious", intensity: 6 },
@@ -31,6 +33,19 @@ const Dashboard = () => {
       case "Tired": return "😴";
       case "Excited": return "😃";
       default: return "😐";
+    }
+  };
+
+  // Helper function to get user's full name or first name
+  const getUserName = () => {
+    if (!user) return "User";
+    
+    if (user.firstName && user.lastName) {
+      return `${user.firstName} ${user.lastName}`;
+    } else if (user.firstName) {
+      return user.firstName;
+    } else {
+      return user.email.split('@')[0];
     }
   };
 
@@ -84,11 +99,9 @@ const Dashboard = () => {
           </ul>
         </nav>
         <div className="p-4 border-t">
-          <Button variant="outline" className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50" asChild>
-            <Link to="/">
-              <LogOut className="mr-3 h-5 w-5" />
-              <span>Logout</span>
-            </Link>
+          <Button variant="outline" className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50" onClick={logout}>
+            <LogOut className="mr-3 h-5 w-5" />
+            <span>Logout</span>
           </Button>
         </div>
       </aside>
@@ -108,7 +121,7 @@ const Dashboard = () => {
       {/* Main Content */}
       <main className="flex-1 md:p-8 p-4 pt-20 md:pt-8">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold">Welcome back, User!</h1>
+          <h1 className="text-3xl font-bold">Welcome back, {getUserName()}!</h1>
           <p className="text-gray-600">Here's an overview of your mental wellness journey.</p>
         </header>
 
